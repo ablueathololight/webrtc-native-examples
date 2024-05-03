@@ -62,10 +62,11 @@ The active party first creates an SDP through the webrtc interface. This SDP is 
 
 In the video streaming chapter, I will continue with examples.
 
-candidate
+## Candidate
+
 As the name suggests, candidate means candidate, which refers to an IP address that can be used to establish a network connection.
 
-picture1
+![picture1](../materials/pictures/1-1-candidate.png)
 
 In the picture above, there are three PCs and two small subnet segments under a certain LAN. The public IP of this LAN is 23.23.2.1.
 
@@ -81,8 +82,11 @@ Then PC1 and PC2 will notify each other of the external network candidate.
 
 In this example, PC1 and PC2 are in the same LAN, and PC1 gets PC2's LAN cadidate:192.168.1.2:8888. PC1 will try to communicate with this address of PC2 (send a message in the specified format):
 
+```txt
 192.168.1.1:8888 ------> 192.168.1.2:8888 yes!
 10.133.3.1:8888 ------> 192.168.1.2:8888 no!
+```
+
 In the same way, when PC2 gets the LAN cadidate of PC1, it will also perform this action. When PC1 and PC2 are connected in both directions, the P2P connection is connected, which is called a "connection".
 
 Every time it receives a candidate from the other party, webrtc will perform the connectivity test mentioned above. If a connectable "connection" appears later, webrtc will switch the "connection". The specific method is to sort through rtt. But no more introduction.
