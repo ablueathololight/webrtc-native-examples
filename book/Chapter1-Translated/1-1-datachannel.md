@@ -1,4 +1,4 @@
-## webrtc data channel
+# webrtc data channel
 
 In addition to transmitting audio and video in webrtc, some ordinary data, such as binary protocols, can also be transmitted through "datachannle".
 
@@ -6,7 +6,7 @@ In addition to introducing datachannle, this chapter focuses on describing the p
 
 For the convenience of description, here we assume that two users A and B want to use webrtc to interconnect, and A actively initiates a request to establish a connection. There is no video and audio stream, only a data channel is established.
 
-### Signaling Server
+## Signaling Server
 
 webrtc is point-to-point communication, designed to establish communication between two webrtc clients located under different networks. Before the p2p connection is established, A does not know anything about B.
 
@@ -18,7 +18,7 @@ The structure is like this:
 
 ![picture1](../materials/pictures/1-1-framework.png)
 
-### PeerConnection
+## PeerConnection
 
 A peerconnection can be created as follows:
 
@@ -120,7 +120,7 @@ So far, the offer\answer interaction has been completed. Next, we introduce cand
 
 When the application layer calls SetXXXDescription(), webrtc begins to collect "**candidate addresses**".
 
-#### candidate (candidate address)
+### candidate (candidate address)
 
 Host A under the LAN has two local network devices: Ethernet and 802.11 (wifi). The IP addresses are 192.168.1.2\10.133.1.2 respectively, and its public network address is 200.100.50.1. In theory, host A has three udp candidates, which are the above three addresses. Print a candidate as a string, which looks like this:
 
@@ -155,7 +155,7 @@ class B {
 
 Immediately afterwards, webrtc will match the local candidate and the remote candidate to create a virtual connection (**connection**).
 
-#### connection
+### connection
 
 Host A under a certain LAN has only one network device, the local IP is 192.168.1.2, and its external network address is 123.1.1.2.
 
@@ -170,8 +170,7 @@ When B's two candidates (local and external) are sent to A, A will create the fo
 
 webrtc will perform connectivity testing on all connections, similar to "ping". Being able to "ping" generally indicates that the network is connected, and sorts all "connections" to select the best connection (the rtt is the shortest) and use it Final streaming.
 
-
-### Datachannle callback
+## Datachannle callback
 
 After this, the dtls handshake will be carried out, and then the user-mode sctp protocol handshake will be carried out, and the data channel will be established.
 
@@ -179,8 +178,7 @@ For the party (A) who actively creates the datachannel, webrtc will notify the u
 
 For B, webrtc will tell the user through the OnDataChannel(channle) callback.
 
-
-### C++ examples that can be compiled and run
+## C++ examples that can be compiled and run
 
 In src/datachannel/main.cpp, I created 2 peerconnections as active and passive parties.
 

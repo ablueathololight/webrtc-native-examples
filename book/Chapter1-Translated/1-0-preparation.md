@@ -2,7 +2,7 @@
 
 There are many concepts in webrtc that will cause understanding obstacles for beginners. If they do not have a general understanding of these concepts, even if these concepts are not important, beginners will still subconsciously think that this matter is difficult. Below I will briefly describe the following frequently touched concepts in vernacular.
 
-# SDP
+## SDP
 
 It is a negotiation protocol that includes whether a data channel needs to be established, whether a video stream needs to be established, whether an audio stream needs to be established, and the format specifications of these streams, such as whether the video encoding format uses H264 or VP8, and whether the audio encoding format uses OPUS, etc. .
 

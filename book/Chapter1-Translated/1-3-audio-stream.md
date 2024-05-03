@@ -1,15 +1,15 @@
-## webrtc audio stream
+# webrtc audio stream
 
 This chapter introduces how to use webrtc to send and receive audio streams. Some of the knowledge points involved in this chapter were introduced in the previous chapter, so I won’t go into details here.
 
 Similarly, two peerconnections are still used in the same process to send and receive audio streams.
 
-### AudioEncoderFactory
+## AudioEncoderFactory
 
 Just like the video, I won’t introduce much here.
 
 
-### Add audio stream to PeerConnection
+## Add audio stream to PeerConnection
 Use the following code to add an "audio source" to the peerconnection.
 
 ```C++
@@ -105,7 +105,7 @@ Readers may be confused, since this "local_audio_source" is an empty implementat
 
 For the time being, readers only need to know that such a source needs to be created.
 
-### Changes to sdp
+## Changes to sdp
 ```shell
 o=-2941351251118757007 2 IN IP4 127.0.0.1
 s=-
@@ -154,11 +154,11 @@ a=ssrc:4067769755 label:audio
 
 Through "a=rtpmap:111 opus/48000/2" we see that the default audio encoding format of webrtc is opus.
 
-### Send audio data
+## Send audio data
 
 webrtc controls encoding and sending by itself.
 
-### Receive audio data
+## Receive audio data
 
 For the default implementation, audio data will be collected by webrtc and played by webrtc.
 
@@ -189,7 +189,7 @@ size_t number_of_frames)
 };
 ```
 
-### end
+## end
 
 I believe readers still have a lot of confusion after reading this chapter:
 * Where does the default audio_device obtain the data?
